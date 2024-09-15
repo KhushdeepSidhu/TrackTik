@@ -28,7 +28,6 @@ class ErrorBoundary extends React.Component<
 
   componentDidCatch(error: Error) {
     this.setState({ hasError: true });
-    console.log('Error: ', error);
   }
 
   handleGoBack = () => {

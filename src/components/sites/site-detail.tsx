@@ -14,7 +14,6 @@ import SiteDetailContactInfo from './site-detail-contact-info';
 import useFetchSite from './queries/useFetchSite';
 
 const SiteDetail = () => {
-  console.log('SiteDetail component is re-rendered');
   const { id } = useParams<{ id: string }>();
 
   if (!id) {

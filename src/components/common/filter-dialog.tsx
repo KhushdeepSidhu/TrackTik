@@ -30,7 +30,6 @@ const FilterDialog: FunctionComponent<FilterDialogProps> = ({
   setToDate,
   onSave,
 }) => {
-  console.log('Filter dialog is re-rendered.');
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Filter Sites</DialogTitle>

@@ -24,7 +24,6 @@ const SiteListItems: FunctionComponent<SiteListItemsProps> = ({
   setPage,
   isPreviousData,
 }) => {
-  console.log('SiteListItems component is re-rendered');
   return (
     <Grid container size={8} justifyContent="center" alignItems="center">
       <Grid size={12}>

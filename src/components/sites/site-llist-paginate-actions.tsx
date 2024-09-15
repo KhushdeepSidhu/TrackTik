@@ -15,7 +15,6 @@ const SiteListPaginateActions: FunctionComponent<SiteListPaginateActions> = ({
   setPage,
   isPreviousData,
 }) => {
-  console.log('SiteListPageActions component is re-rendered');
   return (
     <>
       <Grid container justifyContent="center" alignItems="center">

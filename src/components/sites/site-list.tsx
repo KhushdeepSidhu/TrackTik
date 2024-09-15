@@ -38,7 +38,6 @@ import {
 import type { BrowseSitesOptions } from './types/types';
 
 const SiteList = () => {
-  console.log('SiteList component is re-rendered');
   const [page, setPage] = useState<number>(1);
   const [state, dispatch] = useReducer(SiteListReducer, siteListInitialState);
   const [debouncedSearch, setDebouncedSearch] = useState<string>(state.search);

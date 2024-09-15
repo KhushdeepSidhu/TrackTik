@@ -31,7 +31,6 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
   onSortByChange,
   handleFilterDialogOpen,
 }) => {
-  console.log('SearchBar component is re-rendered');
   return (
     <>
       {/* Search By dropdown */}

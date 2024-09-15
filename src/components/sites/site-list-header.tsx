@@ -4,7 +4,6 @@ import React, { FunctionComponent, memo } from 'react';
 import { Typography, Divider } from '@mui/material';
 
 const SiteListHeader: FunctionComponent = () => {
-  console.log('SiteListHeader component is re-rendered');
   return (
     <>
       <Typography variant="h5" color="white" align="center">

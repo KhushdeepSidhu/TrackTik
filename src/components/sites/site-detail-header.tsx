@@ -27,7 +27,6 @@ const SiteDetailHeader: FunctionComponent<SiteDetailHeaderProps> = ({
   siteImage,
   navigateBack,
 }) => {
-  console.log('SiteDetail component is re-rendered');
   return (
     <Grid
       container
