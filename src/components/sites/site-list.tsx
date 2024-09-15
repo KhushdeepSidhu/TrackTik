@@ -11,7 +11,6 @@ import FilterDialog from '../common/filter-dialog';
 import SearchBar from '../common/search-bar';
 import SiteListItems from './site-list-items';
 import SiteListHeader from './site-list-header';
-import SiteLlistPaginateActions from './site-llist-paginate-actions';
 import LoadingIndicator from '../common/loading-indicator';
 
 // MUI
@@ -22,6 +21,7 @@ import Grid from '@mui/material/Grid2';
 import {
   SiteListReducer,
   siteListInitialState,
+  initializeState,
 } from './reducer/site-list-reducer';
 
 // Hooks
@@ -39,7 +39,11 @@ import type { BrowseSitesOptions } from './types/types';
 
 const SiteList = () => {
   const [page, setPage] = useState<number>(1);
-  const [state, dispatch] = useReducer(SiteListReducer, siteListInitialState);
+  const [state, dispatch] = useReducer(
+    SiteListReducer,
+    siteListInitialState,
+    initializeState
+  );
   const [debouncedSearch, setDebouncedSearch] = useState<string>(state.search);
   const [filterDialogOpen, setFilterDialogOpen] = useState<boolean>(false); // State to manage filter dialog
 

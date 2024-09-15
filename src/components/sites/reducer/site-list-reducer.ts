@@ -8,6 +8,14 @@ import {
   SiteListActionType,
 } from '../types/types';
 
+export const initializeState = () => {
+  const savedState = localStorage.getItem('siteListState');
+  if (savedState) {
+    return { ...siteListInitialState, ...JSON.parse(savedState) };
+  }
+  return siteListInitialState;
+};
+
 export const siteListInitialState: SiteListState = {
   search: '',
   searchBy: SiteListSearchByOptions.all,
