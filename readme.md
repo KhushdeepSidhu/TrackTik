@@ -43,6 +43,13 @@ To run the test suite, use the following command:
 
     npm test
 
+Note - The Filter dialog is just a placeholder, there are fom and to date pickers to select the range of dates to get
+the sites created between those dates. I tried the following query but that does not seem to work -
+
+      https://tracktik-challenge.staffr.com/sites?createdAt_gte=06-06-2023
+
+Need some more info if we can query like this or in which format we have to send the createdAt_gte.
+
 Performance Optimizations
 
 - Memoization: The SiteList component uses useCallback to memoize functions like setPage, handleSearchByDropdown, and others to prevent unnecessary re-renders.
