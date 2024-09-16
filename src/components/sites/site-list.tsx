@@ -145,30 +145,6 @@ const SiteList = () => {
     };
   }, [search]);
 
-  // Load state from localStorage on component mount
-  useEffect(() => {
-    const savedState = localStorage.getItem('siteListState');
-    if (savedState) {
-      const parsedState = JSON.parse(savedState);
-      dispatch({
-        type: SiteListActionType.setSearch,
-        payload: parsedState.search,
-      });
-      dispatch({
-        type: SiteListActionType.setSearchBy,
-        payload: parsedState.searchBy,
-      });
-      dispatch({
-        type: SiteListActionType.setSortBy,
-        payload: parsedState.sortBy,
-      });
-      dispatch({
-        type: SiteListActionType.setFilter,
-        payload: parsedState.filter,
-      });
-    }
-  }, []);
-
   // Save state to localStorage whenever the state changes
   useEffect(() => {
     localStorage.setItem('siteListState', JSON.stringify(state));
