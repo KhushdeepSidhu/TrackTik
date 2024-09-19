@@ -24,7 +24,8 @@ describe('SearchBar Component', () => {
         onSearchChange={mockOnSearchChange}
         sortBy="createdAt"
         onSortByChange={mockOnSortByChange}
-        handleFilterDialogOpen={mockHandleFilterDialogOpen}
+        fromDate={''}
+        toDate={''}
       />
     );
 
@@ -44,7 +45,8 @@ describe('SearchBar Component', () => {
         onSearchChange={mockOnSearchChange}
         sortBy="createdAt"
         onSortByChange={mockOnSortByChange}
-        handleFilterDialogOpen={mockHandleFilterDialogOpen}
+        fromDate={''}
+        toDate={''}
       />
     );
 
@@ -68,7 +70,8 @@ describe('SearchBar Component', () => {
         onSearchChange={mockOnSearchChange}
         sortBy="createdAt"
         onSortByChange={mockOnSortByChange}
-        handleFilterDialogOpen={mockHandleFilterDialogOpen}
+        fromDate={''}
+        toDate={''}
       />
     );
 
@@ -92,7 +95,8 @@ describe('SearchBar Component', () => {
         onSearchChange={mockOnSearchChange}
         sortBy="createdAt"
         onSortByChange={mockOnSortByChange}
-        handleFilterDialogOpen={mockHandleFilterDialogOpen}
+        fromDate={''}
+        toDate={''}
       />
     );
 
@@ -103,23 +107,5 @@ describe('SearchBar Component', () => {
     });
 
     expect(mockOnSearchChange).toHaveBeenCalled();
-  });
-
-  test('calls handleFilterDialogOpen when Filters button is clicked', () => {
-    render(
-      <SearchBar
-        searchBy="all"
-        onSearchByChange={mockOnSearchByChange}
-        search="test"
-        onSearchChange={mockOnSearchChange}
-        sortBy="createdAt"
-        onSortByChange={mockOnSortByChange}
-        handleFilterDialogOpen={mockHandleFilterDialogOpen}
-      />
-    );
-
-    fireEvent.click(screen.getByTestId('FilterListIcon'));
-
-    expect(mockHandleFilterDialogOpen).toHaveBeenCalled();
   });
 });

@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" errors="0" time="7.211">
-  <testsuite name="SearchBar Component" errors="0" failures="0" skipped="0" timestamp="2024-09-15T02:18:08" time="6.77" tests="5">
-    <testcase classname="SearchBar Component renders correctly with given props" name="SearchBar Component renders correctly with given props" time="0.157" file="src/components/common/__tests__/SearchBar.test.tsx">
+<testsuites name="jest tests" tests="4" failures="0" errors="0" time="7.339">
+  <testsuite name="SearchBar Component" errors="0" failures="0" skipped="0" timestamp="2024-09-19T02:20:12" time="6.921" tests="4">
+    <testcase classname="SearchBar Component renders correctly with given props" name="SearchBar Component renders correctly with given props" time="0.165" file="src/components/common/__tests__/SearchBar.test.tsx">
     </testcase>
-    <testcase classname="SearchBar Component calls onSearchByChange when Search By dropdown changes" name="SearchBar Component calls onSearchByChange when Search By dropdown changes" time="0.166" file="src/components/common/__tests__/SearchBar.test.tsx">
+    <testcase classname="SearchBar Component calls onSearchByChange when Search By dropdown changes" name="SearchBar Component calls onSearchByChange when Search By dropdown changes" time="0.323" file="src/components/common/__tests__/SearchBar.test.tsx">
     </testcase>
-    <testcase classname="SearchBar Component calls onSortByChange when Sort By dropdown changes" name="SearchBar Component calls onSortByChange when Sort By dropdown changes" time="0.077" file="src/components/common/__tests__/SearchBar.test.tsx">
+    <testcase classname="SearchBar Component calls onSortByChange when Sort By dropdown changes" name="SearchBar Component calls onSortByChange when Sort By dropdown changes" time="0.088" file="src/components/common/__tests__/SearchBar.test.tsx">
     </testcase>
-    <testcase classname="SearchBar Component calls onSearchChange when search input changes" name="SearchBar Component calls onSearchChange when search input changes" time="0.038" file="src/components/common/__tests__/SearchBar.test.tsx">
-    </testcase>
-    <testcase classname="SearchBar Component calls handleFilterDialogOpen when Filters button is clicked" name="SearchBar Component calls handleFilterDialogOpen when Filters button is clicked" time="0.036" file="src/components/common/__tests__/SearchBar.test.tsx">
+    <testcase classname="SearchBar Component calls onSearchChange when search input changes" name="SearchBar Component calls onSearchChange when search input changes" time="0.037" file="src/components/common/__tests__/SearchBar.test.tsx">
     </testcase>
   </testsuite>
 </testsuites>
