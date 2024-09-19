@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 
 // Components
-import FilterDialog from '../common/filter-dialog';
 import SearchBar from '../common/search-bar';
 import SiteListItems from './site-list-items';
 import SiteListHeader from './site-list-header';
@@ -38,16 +37,14 @@ import {
 import type { BrowseSitesOptions } from './types/types';
 
 const SiteList = () => {
-  const [page, setPage] = useState<number>(1);
   const [state, dispatch] = useReducer(
     SiteListReducer,
     siteListInitialState,
     initializeState
   );
   const [debouncedSearch, setDebouncedSearch] = useState<string>(state.search);
-  const [filterDialogOpen, setFilterDialogOpen] = useState<boolean>(false); // State to manage filter dialog
 
-  const { search, searchBy, sortBy, filter } = state;
+  const { page, search, searchBy, sortBy, filter } = state;
 
   const params: BrowseSitesOptions = {
     _page: page,
@@ -95,43 +92,23 @@ const SiteList = () => {
     isPreviousData,
   } = useFetchSites(params);
 
-  const handleFilterDialogOpen = useCallback(() => {
-    setFilterDialogOpen(true);
-  }, []);
-
-  const handleFilterDialogClose = useCallback(() => {
-    setFilterDialogOpen(false);
-  }, []);
-
-  const handleSaveFilters = useCallback(() => {
-    // We can dispatch an action here to update the state.filter and update the query params
-    setFilterDialogOpen(false);
-  }, []);
-
-  const handleSetToDate = useCallback(() => {}, []);
-
-  const handleSetFromDate = useCallback(() => {}, []);
-
   const handleSearchByDropdown = useCallback((e: SelectChangeEvent<string>) => {
     dispatch({ type: SiteListActionType.setSearchBy, payload: e.target.value });
-    setPage(1);
   }, []);
 
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: SiteListActionType.setSearch, payload: e.target.value });
-      setPage(1);
     },
     []
   );
 
   const handleSortByChange = useCallback((e: SelectChangeEvent<string>) => {
     dispatch({ type: SiteListActionType.setSortBy, payload: e.target.value });
-    setPage(1);
   }, []);
 
   const setPageState = useCallback((newPage: number) => {
-    setPage(newPage);
+    dispatch({ type: SiteListActionType.setPage, payload: newPage });
   }, []);
 
   // Debounce effect for search input
@@ -180,7 +157,8 @@ const SiteList = () => {
             onSortByChange={handleSortByChange}
             search={search}
             onSearchChange={handleSearchChange}
-            handleFilterDialogOpen={handleFilterDialogOpen}
+            fromDate={filter.fromDate}
+            toDate={filter.toDate}
           />
         </Grid>
       </Grid>
@@ -214,19 +192,8 @@ const SiteList = () => {
           )}
         </Grid>
       ) : null}
-
-      {/* Filter Dialog */}
-      <FilterDialog
-        open={filterDialogOpen}
-        onClose={handleFilterDialogClose}
-        fromDate={filter.fromDate}
-        toDate={filter.toDate}
-        setFromDate={handleSetFromDate}
-        setToDate={handleSetToDate}
-        onSave={handleSaveFilters}
-      />
     </Grid>
   );
 };
 
-export default memo(SiteList);
+export default SiteList;

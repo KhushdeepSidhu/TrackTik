@@ -17,6 +17,7 @@ export const initializeState = () => {
 };
 
 export const siteListInitialState: SiteListState = {
+  page: 1,
   search: '',
   searchBy: SiteListSearchByOptions.all,
   sortBy: SiteListSortByOptions.createdAt,
@@ -32,14 +33,20 @@ export const SiteListReducer = (
   action: SiteListActions
 ): SiteListState => {
   switch (action.type) {
+    case SiteListActionType.setPage:
+      return { ...state, page: action.payload };
     case SiteListActionType.setSearch:
-      return { ...state, search: action.payload };
+      return { ...state, search: action.payload, page: 1 };
     case SiteListActionType.setSearchBy:
-      return { ...state, searchBy: action.payload };
+      return { ...state, searchBy: action.payload, page: 1 };
     case SiteListActionType.setSortBy:
-      return { ...state, sortBy: action.payload };
+      return { ...state, sortBy: action.payload, page: 1 };
     case SiteListActionType.setFilter:
-      return { ...state, filter: { ...state.filter, ...action.payload } };
+      return {
+        ...state,
+        filter: { ...state.filter, ...action.payload },
+        page: 1,
+      };
     default:
       return state;
   }

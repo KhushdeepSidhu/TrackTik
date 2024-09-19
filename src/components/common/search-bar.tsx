@@ -9,8 +9,9 @@ import {
   SelectChangeEvent,
   Typography,
 } from '@mui/material';
-import { FilterList } from '@mui/icons-material';
+
 import Grid from '@mui/material/Grid2';
+import FilterDialogWithToggle from './filter-dialog-with-toggle';
 
 type SearchBarProps = {
   searchBy: string;
@@ -19,7 +20,8 @@ type SearchBarProps = {
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   sortBy: string;
   onSortByChange: (event: SelectChangeEvent<string>) => void;
-  handleFilterDialogOpen: () => void;
+  fromDate: string;
+  toDate: string;
 };
 
 const SearchBar: FunctionComponent<SearchBarProps> = ({
@@ -29,7 +31,8 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
   onSearchChange,
   sortBy,
   onSortByChange,
-  handleFilterDialogOpen,
+  fromDate,
+  toDate,
 }) => {
   return (
     <>
@@ -107,22 +110,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
         <Typography variant="body1" sx={{ color: 'white', mb: 0.7 }}>
           Filters
         </Typography>
-        <IconButton
-          sx={{
-            backgroundColor: 'white',
-            '&:hover': {
-              backgroundColor: 'white',
-            },
-            borderRadius: 2,
-            display: 'flex',
-            justifyContent: 'center',
-            height: '100%',
-            width: '100%',
-          }}
-          onClick={handleFilterDialogOpen}
-        >
-          <FilterList />
-        </IconButton>
+        <FilterDialogWithToggle fromDate={fromDate} toDate={toDate} />
       </Grid>
     </>
   );

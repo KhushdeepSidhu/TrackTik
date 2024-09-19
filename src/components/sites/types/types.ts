@@ -4,6 +4,7 @@ export type FilterOptions = {
 };
 
 export type SiteListState = {
+  page: number;
   search: string;
   searchBy: string;
   sortBy: string;
@@ -11,6 +12,7 @@ export type SiteListState = {
 };
 
 export enum SiteListActionType {
+  setPage = 'SET_PAGE',
   setSearch = 'SET_SEARCH',
   setSearchBy = 'SET_SEARCH_BY',
   setSortBy = 'SET_SORT_BY',
@@ -18,6 +20,7 @@ export enum SiteListActionType {
 }
 
 type SiteListPayload = {
+  [SiteListActionType.setPage]: number;
   [SiteListActionType.setSearch]: string;
   [SiteListActionType.setSearchBy]: string;
   [SiteListActionType.setSortBy]: string;
